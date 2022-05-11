@@ -1,3 +1,5 @@
+-- https://github.com/rahardia79/mysql-lab2
+
 show databases;
 use instacart;
 show tables;
@@ -58,3 +60,9 @@ where add_to_cart_order = 1;
 
 
 -- Q5. Extract the frequency percentage (what we found in Q3) of the first product each user placed in their last order.
+
+select user_product_freq.* 
+from user_product_freq join first_item
+on (user_product_freq.user_id = first_item.user_id and
+user_product_freq.product_id = first_item.product_id);
+
